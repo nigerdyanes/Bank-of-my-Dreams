@@ -22,10 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 //Routers
-app.use('/', authRoutes); // Auth Routes
-app.use('/accounts', loggerMiddleware, accountRoutes) // Accounts Routes
-app.use('/transactions', loggerMiddleware, transactionsRoutes) // Transactions Routes
-app.use('/products', loggerMiddleware, productsRoutes) // Products Routes
+app.use('/api/', authRoutes); // Auth Routes
+app.use('/api/accounts', loggerMiddleware, accountRoutes) // Accounts Routes
+app.use('/api/transactions', loggerMiddleware, transactionsRoutes) // Transactions Routes
+app.use('/api/products', loggerMiddleware, productsRoutes) // Products Routes
 
 //Starting server.
 app.listen(config.port, () => {
