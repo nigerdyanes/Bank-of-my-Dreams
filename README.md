@@ -4,6 +4,8 @@ This is a test project, associated with a technical challenge called Bank of my 
 
 Developed with NodeJS, Express and powered by the Javascript super set, TypeScript  and occupies mysql for data persistence.
 
+#### Docs-API
+[https://bank-of-my-dreams.herokuapp.com/api-docs/](https://bank-of-my-dreams.herokuapp.com/api-docs/)
 
 ------------
 
