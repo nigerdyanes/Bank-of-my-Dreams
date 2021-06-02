@@ -4,7 +4,7 @@ import { validationAuth,existsIdentification } from "../middlewares/requestAuth"
 const router = Router();
 
 
-router.get('/login', validationAuth, login);
+router.post('/login', validationAuth, login);
 router.post('/register',[validationAuth,existsIdentification], register);
 
 

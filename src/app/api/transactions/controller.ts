@@ -7,7 +7,8 @@ const transactionsServices = new TransactionsServices;
 
 export const getTransactions = async(req: Request, res: Response) => {
     try {
-        const transactions = await transactionsServices.getTransactions();
+        // @ts-ignore
+        const transactions = await transactionsServices.getTransactions(req.params.idAccount, req.user.id);
         res.status(200).json({
             status: "success",
             data:transactions
@@ -33,7 +34,8 @@ export const getDetailsTransaction = async(req: Request, res: Response) => {
 }
 
 export const createTransaction = async(req: Request, res: Response) => {
-    const newTransaction = await transactionsServices.createTransaction(req.body);
+    //@ts-ignore
+    const newTransaction = await transactionsServices.createTransaction(req.body,req.user.id);
     res.status(201).json({
         status: "success",
         data: newTransaction
@@ -44,7 +46,7 @@ export const getAverageAmount = async(req: Request, res: Response) => {
     try {
         const{ start, end } =req.query;
          // @ts-ignore
-        const averageAmount = await transactionsServices.getAverageAmount(start ,end); 
+        const averageAmount = await transactionsServices.getAverageAmount(start ,end, req.user.id); 
         if (averageAmount) {
             res.status(200).json({
                 status: "success",

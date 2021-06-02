@@ -4,9 +4,9 @@ import { ITransaction } from "../../interfaces/Transaction";
 
 export class TransactionsServices {
 
-    async getTransactions() {
+    async getTransactions(idAccount:number, idUser:number) {
         try {
-            const transactions = await Transaction.findAll();
+            const transactions = await Transaction.findAll({where:{idAccount,idUser}});
             return transactions;
         } catch (error) {
             throw new Error("Cannot get Transactions");
@@ -22,9 +22,10 @@ export class TransactionsServices {
         }
     }   
 
-    async createTransaction(transaction:ITransaction){
+    async createTransaction(transaction:ITransaction, idUser:number){
         const newTransaction = await Transaction.build({
             idAccount:transaction.idAccount,
+            idUser,
             commerce:transaction.commerce,
             amount:transaction.amount,
             iva:transaction.iva,
@@ -36,7 +37,7 @@ export class TransactionsServices {
         return newTransaction;
     }
 
-    async getAverageAmount(start:string,end:string){
+    async getAverageAmount(start:string,end:string, idUser:number){
         try {
             const startedDate = new Date(start);
              const endDate = new Date(end);
@@ -44,7 +45,10 @@ export class TransactionsServices {
                 attributes: [
                      [sequelize.fn('AVG', sequelize.col('amountNeto')), 'avgAmount'],
                 ],
-                where:{"createdAt" : {[Op.between] : [startedDate , endDate ]}}
+                where:{"createdAt" : {[Op.between] : [startedDate , endDate ]},
+                        "idUser":{[Op.and]:[idUser]}
+                },
+            
             });
             return averageAmount[0].get().avgAmount;
         } catch (error) {

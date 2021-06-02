@@ -6,6 +6,9 @@ const Transaction = db.connection.define('Transaction', {
     idAccount:{
         type: DataTypes.NUMBER
     },
+    idUser:{
+        type: DataTypes.NUMBER
+    },
     commerce :{
         type: DataTypes.STRING
     },

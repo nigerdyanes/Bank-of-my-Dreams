@@ -6,7 +6,8 @@ const productServices = new ProductServices();
 
 export const getProducts = async(req: Request, res: Response) => {
     try {
-        const products = await productServices.getProducts();
+        // @ts-ignore
+        const products = await productServices.getProducts(req.user.id);
         res.status(200).json({
             status: "success",
             data: products

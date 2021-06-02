@@ -6,7 +6,8 @@ const accountServices = new AccountServices();
 
 export const getAccounts = async(req: Request, res: Response)=>{
     try {        
-        const accounts = await accountServices.getAccounts();
+        //@ts-ignore
+        const accounts = await accountServices.getAccounts(req.user.id);
         res.status(200).json({
             status: "success",
             data: accounts,

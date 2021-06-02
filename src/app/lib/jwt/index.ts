@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 class Jwt {
     singContract(user:any){
         user = JSON.parse(JSON.stringify(user));
-        return jwt.sign(user,config.jwt.secret, { expiresIn: config.expirationTimeToken });
+        return jwt.sign(user,config.jwt.secret, { expiresIn: Number(config.expirationTimeTokenInMinutes) * 60 });
     }
 
 

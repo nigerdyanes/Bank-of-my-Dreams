@@ -1,9 +1,9 @@
 import Account from "../../models/account";
 
 export class AccountServices {
-    async getAccounts() {
+    async getAccounts(idUser:number) {
         try {
-            const accounts = await Account.findAll();
+            const accounts = await Account.findAll({where:{idUser}});
             return accounts;
         } catch (error) {
             throw new Error("Cannot get Accounts");

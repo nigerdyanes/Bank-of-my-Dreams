@@ -13,7 +13,7 @@ const config = {
         jwt:{
                 secret:process.env.SECRET || 'secret',
         },
-        expirationTimeToken: process.env.EXPIRATION_TIME_TOKEN || 1800,
+        expirationTimeTokenInMinutes: process.env.EXPIRATION_TIME_TOKEN || 10,
 }
 
 export default config;

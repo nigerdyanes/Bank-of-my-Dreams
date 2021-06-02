@@ -5,8 +5,8 @@ import { validationCreateAccount,validationupdateStatusAccount  } from "../middl
 const router = Router();
 
 router.get('/', getAccounts);
-router.post('/create', validationCreateAccount, createAccount);
-router.put('/:idAccount/update', validationupdateStatusAccount, updateStatusAccount);
+router.post('/', validationCreateAccount, createAccount);
+router.put('/:idAccount', validationupdateStatusAccount, updateStatusAccount);
 
 
 export default router;
