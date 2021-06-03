@@ -12,19 +12,27 @@ import productsRoutes from "./app/routes/products";
 import { Connection } from './app/db/connection';
 //Middleware
 import { loggerMiddleware } from "./app/middlewares/isAuth";
+//Cors
+import cors from "cors";
 //SwaggerDoc
 //@ts-ignore
 import swaggerDoc from "../openapi.json";
 
 const app = express();
 const connection = new Connection();
+ 
 
 //Autenticate DB
-connection.dbConnection();
+connection.dbConnection()
+    .then()
+    .catch(err => {
+        throw new Error(err); 
+    });
 
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(cors());
 
 //Routers
 app.use('/api/', authRoutes); // Auth Routes

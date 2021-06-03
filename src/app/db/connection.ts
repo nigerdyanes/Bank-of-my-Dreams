@@ -7,7 +7,8 @@ export class Connection {
     constructor() {
         this.connection = new Sequelize(config.db.mysql.dbName,config.db.mysql.dbUser,config.db.mysql.dbPassword,{
             host:config.db.mysql.host,
-            dialect:'mysql'
+            dialect:'mysql',
+            logging: false
         });
     }
 
