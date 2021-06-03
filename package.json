@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "postinstall": "npm run tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
     "test": "mocha",
     "cover": "nyc npm run test",
     "report": "nyc report --reporter=html && open coverage/index.html"

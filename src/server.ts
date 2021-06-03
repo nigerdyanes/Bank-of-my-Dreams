@@ -16,7 +16,7 @@ import { loggerMiddleware } from "./app/middlewares/isAuth";
 import cors from "cors";
 //SwaggerDoc
 //@ts-ignore
-import swaggerDoc from "../openapi.json";
+import swaggerDoc from "../../openapi.json";
 
 const app = express();
 const connection = new Connection();
