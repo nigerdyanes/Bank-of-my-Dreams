@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import { Connection } from '../db/connection';
 const db = new Connection();
 
-const Transaction = db.connection.define('Transaction', {
+const Transaction = db.connection.define('transaction', {
     idAccount:{
         type: DataTypes.NUMBER
     },

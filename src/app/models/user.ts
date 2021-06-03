@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import { Connection } from '../db/connection';
 const db = new Connection();
 
-const User = db.connection.define('User', {
+const User = db.connection.define('user', {
     identification:{
         type: DataTypes.NUMBER
     },

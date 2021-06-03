@@ -3,7 +3,7 @@ import { Connection } from '../db/connection';
 
 const db = new Connection();
 
-const Product = db.connection.define('Product', {
+const Product = db.connection.define('product', {
     idUser:{
         type: DataTypes.NUMBER
     },
